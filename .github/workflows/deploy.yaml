@@ -25,6 +25,10 @@ jobs:
         with:
           node-version-file: package.json
 
+      - name: Install Node.js Dependencies
+        run: npm install
+        working-directory: infra
+
       - name: Install Dependencies
         run: pip install -r requirements.txt
         working-directory: infra
