@@ -27,11 +27,9 @@ jobs:
 
       - name: Install Node.js Dependencies
         run: npm install
-        working-directory: infra
 
       - name: Install Dependencies
         run: pip install -r requirements.txt
-        working-directory: infra
 
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4
