@@ -34,9 +34,20 @@ jobs:
         uses: pulumi/actions@v6
         with:
           command: preview
-          stack-name: org-name/stack-name  # Replace with your actual Pulumi stack name
+          stack-name: my-org/my-stack  # Update this with the correct stack name
           comment-on-pr: true
-          github-token: ${{ secrets.MY_GITHUB_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          work-dir: .
+          upsert: true
+        env:
+          PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
+
+      - name: Run Pulumi Up
+        uses: pulumi/actions@v6
+        with:
+          command: up
+          stack-name: my-org/my-stack  # Update this with the correct stack name
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           work-dir: .
           upsert: true
         env:
